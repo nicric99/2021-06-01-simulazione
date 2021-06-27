@@ -94,7 +94,7 @@ public class FXMLController {
     	model.run();
     	Map<Integer,Genes> risultato= new HashMap(model.getRisultato());
     	for(Integer i:risultato.keySet()) {
-    		System.out.println("\nScienziato "+i+" studia "+ risultato.get(i).toString()+"\n");
+    		txtResult.appendText("\nScienziato "+i+" studia "+ risultato.get(i).toString()+"\n");
     	}
     	
     }
