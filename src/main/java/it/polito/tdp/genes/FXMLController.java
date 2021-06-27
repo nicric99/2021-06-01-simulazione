@@ -6,7 +6,9 @@ package it.polito.tdp.genes;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import it.polito.tdp.genes.model.GenePeso;
@@ -74,7 +76,27 @@ public class FXMLController {
 
     @FXML
     void doSimula(ActionEvent event) {
-
+    	String ing= txtIng.getText();
+    	Genes gene= cmbGeni.getValue();
+    	Integer N= null;
+    	try {
+    		N=Integer.parseInt(ing);
+    		
+    	}catch(NumberFormatException nfe) {
+    		txtResult.appendText("Per favore inserisci un numero intero");
+    		return;
+    	}
+    	if(gene==null) {
+    		txtResult.appendText("Per favore crea e inserisci il gene correttamente");
+    		return;
+		}
+    	model.simula(N,gene);
+    	model.run();
+    	Map<Integer,Genes> risultato= new HashMap(model.getRisultato());
+    	for(Integer i:risultato.keySet()) {
+    		System.out.println("\nScienziato "+i+" studia "+ risultato.get(i).toString()+"\n");
+    	}
+    	
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
