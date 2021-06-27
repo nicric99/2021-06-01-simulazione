@@ -79,7 +79,7 @@ public class Model {
 	
 	public void run() {
 		int counter=0;
-		while(counter<4) {
+		while(counter<36) {
 				for(int i=0; i<N;i++) {
 						int num = (int)(Math.random()*100)+1;
 							if(num<=70) {
